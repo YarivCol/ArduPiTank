@@ -29,10 +29,9 @@ Then in `src/main.c` you should use:
 
 // rest H/C/CPP code
 
-PlatformIO will find your libraries automatically, configure preprocessor's
+  PlatformIO will find your libraries automatically, configure preprocessor's
 include paths and build them.
 
 See additional options for PlatformIO Library Dependency Finder `lib_*`:
 
 http://docs.platformio.org/en/latest/projectconf.html#lib-install
-
