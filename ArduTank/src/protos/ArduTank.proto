@@ -1,0 +1,80 @@
+
+// This file describe how to communicate with the Arduino used in
+// the ArduPiTank project.
+// Both ArduTankCommand and ArduTankResponse uses UnionMessage technique
+// see https://developers.google.com/protocol-buffers/docs/techniques
+// so if you set more then one optional the one with the lower index will
+// be executed.
+// version 0.0.1
+
+syntax = "proto2";
+
+/*****************************************************************/
+/*                                                               */
+/*                            Enums                              */
+/*                                                               */
+/*****************************************************************/
+enum DirectionEnum {
+  FORWARD = 0;
+  BACKWARD = 1;
+}
+
+/*****************************************************************/
+/*                                                               */
+/*                            Commands                           */
+/*                                                               */
+/*****************************************************************/
+
+/*****************************************************************/
+/* Sets the speed of both tracks                                 */
+/* notice : the speed value must 0 - 255 if the value be higher  */
+/*          then 255 the set value will 255.                     */
+/*****************************************************************/
+message SetSpeedCommand {
+  required uint32 speed = 1;
+}
+
+/*****************************************************************/
+/* Moves tank with direction                                     */
+/*****************************************************************/
+message MoveCommand
+{
+  required DirectionEnum direction = 1;
+}
+
+/*****************************************************************/
+/* Stops the tank                                                */
+/*****************************************************************/
+message StopCommand {}
+
+/*****************************************************************/
+/* Gets the version burned to the arduino                                               */
+/*****************************************************************/
+message GetVersionCommand {}
+
+message ArduTankCommand {
+  optional GetVersionCommand GetVersionValue       = 1;
+  optional SetSpeedCommand   SetSpeedCommandValue  = 2;
+  optional MoveCommand       MoveCommandValue      = 3;
+  optional StopCommand       StopCommandValue      = 4;
+}
+
+
+/*****************************************************************/
+/*                                                               */
+/*                            Responses                          */
+/*                                                               */
+/*****************************************************************/
+
+/*****************************************************************/
+/* the response form the arduino                                 */
+/*****************************************************************/
+message GetVersionResponse {
+  required uint32 major = 1;
+  required uint32 minor = 2;
+}
+
+
+message ArduTankResponse {
+  optional GetVersionResponse GetVersionResponseValue = 1;
+}
