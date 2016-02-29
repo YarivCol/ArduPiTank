@@ -37,20 +37,23 @@ message SetSpeedCommand {
 /*****************************************************************/
 /* Moves tank with direction                                     */
 /*****************************************************************/
-message MoveCommand
-{
+message MoveCommand {
   required DirectionEnum direction = 1;
 }
 
 /*****************************************************************/
 /* Stops the tank                                                */
 /*****************************************************************/
-message StopCommand {}
+message StopCommand {
+
+}
 
 /*****************************************************************/
 /* Gets the version burned to the arduino                                               */
 /*****************************************************************/
-message GetVersionCommand {}
+message GetVersionCommand {
+
+}
 
 message ArduTankCommand {
   optional GetVersionCommand GetVersionValue       = 1;
@@ -67,7 +70,7 @@ message ArduTankCommand {
 /*****************************************************************/
 
 /*****************************************************************/
-/* the response form the arduino                                 */
+/* the response from the arduino                                 */
 /*****************************************************************/
 message GetVersionResponse {
   required uint32 major = 1;
