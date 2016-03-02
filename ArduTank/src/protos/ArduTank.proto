@@ -59,7 +59,6 @@ message GetVersionCommand {
 /* Gets the status of the arduino                                */
 /*****************************************************************/
 message GetStatusCommand {
-
 }
 
 message ArduTankCommand {
