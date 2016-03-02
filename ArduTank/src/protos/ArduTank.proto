@@ -49,9 +49,16 @@ message StopCommand {
 }
 
 /*****************************************************************/
-/* Gets the version burned to the arduino                                               */
+/* Gets the version burned to the arduino                        */
 /*****************************************************************/
 message GetVersionCommand {
+
+}
+
+/*****************************************************************/
+/* Gets the status of the arduino                                */
+/*****************************************************************/
+message GetStatusCommand {
 
 }
 
@@ -60,6 +67,7 @@ message ArduTankCommand {
   optional SetSpeedCommand   SetSpeedCommandValue  = 2;
   optional MoveCommand       MoveCommandValue      = 3;
   optional StopCommand       StopCommandValue      = 4;
+  optional GetStatusCommand  GetStatusValue        = 5;
 }
 
 
@@ -77,7 +85,16 @@ message GetVersionResponse {
   required uint32 minor = 2;
 }
 
+/*****************************************************************/
+/* the status of the arduino                                     */
+/*****************************************************************/
+message GetStatusResponse {
+  required DirectionEnum direction = 1;
+  required uint32        speed     = 2;
+  required bool          is_moving = 3;
+}
 
 message ArduTankResponse {
   optional GetVersionResponse GetVersionResponseValue = 1;
+  optional GetStatusResponse  GetStatusResponseValue  = 2;
 }
