@@ -25,8 +25,6 @@ int8_t SerialCommItem::available_bytes()
   return Serial.available();
 }
 
-
-
 void SerialCommItem::connect ()
 {
   Serial.begin(BAUD_RATE);
