@@ -1,6 +1,8 @@
 #ifndef _ARDUTANK_MESSAGES_COMMANDHANDLER_MOTORCOMMANDCALLBACKS_H_
 #define _ARDUTANK_MESSAGES_COMMANDHANDLER_MOTORCOMMANDCALLBACKS_H_
 
+#include <Adafruit_MotorShield.h>
+#include "utility/Adafruit_MS_PWMServoDriver.h"
 #include "../../../protos/output/ArduTank.pb.h"
 
 class MotorCommandCallbacks {
@@ -18,6 +20,9 @@ class MotorCommandCallbacks {
     uint8_t speed;
     bool is_moving;
     DirectionEnum direction;
+    Adafruit_MotorShield AFMS;
+    Adafruit_DCMotor * leftMotor;
+    Adafruit_DCMotor * rightMotor;
 };
 
 #endif

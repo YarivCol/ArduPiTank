@@ -1,18 +1,16 @@
-#include <Adafruit_MotorShield.h>
+
 #include "motor_command_callbacks.h"
-#include "utility/Adafruit_MS_PWMServoDriver.h"
-
-Adafruit_MotorShield AFMS = Adafruit_MotorShield();
-
-Adafruit_DCMotor *leftMotor = AFMS.getMotor(1);
-
-Adafruit_DCMotor *rightMotor = AFMS.getMotor(2);
 
 MotorCommandCallbacks::MotorCommandCallbacks()
 {
+  AFMS = Adafruit_MotorShield();
+
   speed = 40;
   is_moving = false;
   direction = DirectionEnum_FORWARD;
+
+  leftMotor  = AFMS.getMotor(1);
+  rightMotor = AFMS.getMotor(2);
 }
 
 
