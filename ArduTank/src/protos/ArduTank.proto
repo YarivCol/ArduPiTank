@@ -62,11 +62,11 @@ message GetStatusCommand {
 }
 
 message ArduTankCommand {
-  optional GetVersionCommand GetVersionValue       = 1;
-  optional SetSpeedCommand   SetSpeedCommandValue  = 2;
-  optional MoveCommand       MoveCommandValue      = 3;
-  optional StopCommand       StopCommandValue      = 4;
-  optional GetStatusCommand  GetStatusValue        = 5;
+  optional GetVersionCommand GetVersionCommandValue       = 1;
+  optional SetSpeedCommand   SetSpeedCommandValue         = 2;
+  optional MoveCommand       MoveCommandValue             = 3;
+  optional StopCommand       StopCommandValue             = 4;
+  optional GetStatusCommand  GetStatusCommandValue        = 5;
 }
 
 
