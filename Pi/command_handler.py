@@ -30,4 +30,6 @@ class commands(object):
 				setattr(self, attr, command(getattr(proto, attr), stream))
 
 if __name__ == "__main__":
+	port = serial.Serial(port="/dev/ttyACM0", baudrate=115200, timeout=5)
+	cmds = commands(port)
 	IPython.embed()
